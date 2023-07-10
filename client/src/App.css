@@ -107,9 +107,14 @@ p {
   color: white;
 }
 
-#result {
+#resultImage {
   background-color: antiquewhite;
   max-width: 1000px;
   width: 1000px;
+  height: auto;
+}
+
+#sampleImage {
+  width: 500px;
   height: auto;
 }
