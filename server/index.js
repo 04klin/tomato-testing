@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended: false}));
 
 const jwt = require('jsonwebtoken');
 
-const mongoURL = "mongodb+srv://admin:mbjaE3DC8008Upz9@cluster0.kmc7cpb.mongodb.net/?retryWrites=true&w=majority";
+const mongoURL = "";
 
 mongoose
   .connect(mongoURL, {
