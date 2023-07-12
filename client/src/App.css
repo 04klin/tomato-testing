@@ -95,10 +95,22 @@ p {
   font-size: 2rem;
 }
 
-.button {
-  border-width: 0;
-  padding: .3rem;
-  border-radius: .5rem;
+input[type=file] {
+  padding:5px 15px; 
+  background:#ccc; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+}
+
+input[type=file]:hover {
+  padding:5px 15px; 
+  background:darkgray; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
 }
 
 .example{
@@ -108,13 +120,15 @@ p {
 }
 
 #resultImage {
-  background-color: antiquewhite;
+  background-color:aliceblue;
   max-width: 1000px;
   width: 1000px;
-  height: auto;
+  height: auto;  
+  border-radius: 10px;
 }
 
 #sampleImage {
   width: 500px;
   height: auto;
+  border-radius: 10px;
 }
