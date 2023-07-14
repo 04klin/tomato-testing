@@ -31,8 +31,9 @@ function App() {
     }
   }
 
-  function uploadImageToMongo() {
-    fetch("http://localhost:8000/upload-image", {
+  function uploadImageToMongo(event) {
+    event.preventDefault();
+    fetch("/upload-image", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -42,26 +43,27 @@ function App() {
       },
       body: JSON.stringify({
         base64:base64image
-      })    
+      })
     })
     .then((res) => res.json())
+    .then(() => {console.log(`Image has been saved`)})
     .then((data) => console.log(data))
   }
   //10:39
   return (
     <div>
-      <nav class="navbar sticky-top">
-        <div class="container flex">
+      <nav className="navbar sticky-top">
+        <div className="container flex">
           <a href="/"><img width="40" length="auto" src={NCSULogoPath} alt="NCSU Logo"/></a>
-          <ul class="nav justify-content-end">
-            <li><a class="navlink" href="about.html">About</a></li>
-            <li><a class="navlink" href="contact.html">Contact</a></li>
+          <ul className="nav justify-content-end">
+            <li><a className="navlink" href="about.html">About</a></li>
+            <li><a className="navlink" href="contact.html">Contact</a></li>
           </ul>
         </div>      
       </nav>
 
-      <div class="example">
-        <div class="container flex">
+      <div className="example">
+        <div className="container flex">
           <div>
             <h4>Sample</h4>
             <p>This sample should show the model's sample output.</p>
@@ -71,8 +73,8 @@ function App() {
         </div>
       </div>      
 
-      <div class="container section-detector-prompt">
-        <h1 class="header">Detector</h1>
+      <div className="container section-detector-prompt">
+        <h1 className="header">Detector</h1>
         <p>Upload a picture of the desired tomato crops below</p>
         
         <form>
@@ -82,15 +84,19 @@ function App() {
         
         
     
-        <h4 class="small-header">Your results will be shown below</h4>
+        <h4 className="small-header">Preview</h4>
       </div>
-      <div class="container flex">
+      <div className="container flex">
         <img src={image} id="resultImage" alt="Example"/>
         
       </div>
       <br/>
       <br/>
       <br/>
+      <div className="container flex">
+        <h4 className="small-header">Result</h4>
+        {/* There should be a image there that shows if the image is saved or the btton becomes unusable*/}
+      </div>
     </div>
   );
 }
