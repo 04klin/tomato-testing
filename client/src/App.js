@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 
 function App() {
@@ -7,6 +7,8 @@ function App() {
   
   const [image, setImage] = useState(null);
   const [base64image, setBase64Image] = useState("");
+  const [allImage, setAllImage] = useState([]);
+
 
   //Updates the state and displays image
   const ImageUpload = (event) => {
@@ -31,6 +33,10 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    getImage();
+  }, [])
+
   function uploadImageToMongo(event) {
     event.preventDefault();
     fetch("/upload-image", {
@@ -49,7 +55,18 @@ function App() {
     .then(() => {console.log(`Image has been saved`)})
     .then((data) => console.log(data))
   }
-  //10:39
+
+  function getImage() {
+    fetch("/get-image", {
+      method: "GET",
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      setAllImage(data.data);
+    })
+  }
+  
   return (
     <div>
       <nav className="navbar sticky-top">
@@ -76,10 +93,11 @@ function App() {
       <div className="container section-detector-prompt">
         <h1 className="header">Detector</h1>
         <p>Upload a picture of the desired tomato crops below</p>
+        <p>You can do so by clicking Browse or dragging and dropping</p>
         
-        <form>
+        <form onSubmit={uploadImageToMongo}>
           <input accept ="image/*" type="file" onChange={ImageUpload}/>
-          <button onClick={uploadImageToMongo}>Upload</button>  
+          <button type="submit">Upload Image</button>  
         </form>
         
         
@@ -96,6 +114,15 @@ function App() {
       <div className="container flex">
         <h4 className="small-header">Result</h4>
         {/* There should be a image there that shows if the image is saved or the btton becomes unusable*/}
+        <br/>
+        
+        <div>
+          {allImage.map(data => {
+            return(
+              <img width={192} height = {108} src={data.base64image} alt="mongoDB"/>
+            )
+          })}
+        </div>
       </div>
     </div>
   );

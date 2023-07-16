@@ -33,7 +33,7 @@ const Images=mongoose.model("ImageDetails");
 app.post("/upload-image", async(req, res) => {
   const {base64}=req.body;
   try {
-    Images.create({base64image:base64});
+    await Images.create({base64image:base64});
     res.send({Status:"OK"})
 
   } catch (error) {
@@ -42,7 +42,16 @@ app.post("/upload-image", async(req, res) => {
   }
 })
 
-
+app.get("/get-image", async(req, res) => {
+  try {
+    await Images.find({}).then(data => {
+      res.send({status: "OK", data: data});
+    })
+  }
+  catch (error) {
+    console.log(error);
+  }
+})
 
 app.listen(port, () => {
   console.log(`Application is open on http://localhost:${port}`);
