@@ -2,11 +2,8 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
 const mongoose = require('mongoose');
-const cors = require('cors');
+require('dotenv').config();
 
-var corsOptions = {
-  origin: "http://localhost:8000"
-};
 
 app.use(express.json());
 app.set('view engine', "ejs");
