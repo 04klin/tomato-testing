@@ -13,10 +13,10 @@ app.set('view engine', "ejs");
 app.use(express.urlencoded({extended: false}));
 
 
-const mongoURL = "";
+
 
 mongoose
-  .connect(mongoURL, {
+  .connect(process.env.DATABASE, {
     useNewUrlParser: true,
   })
   .then(() => {
