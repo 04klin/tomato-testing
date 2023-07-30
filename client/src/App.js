@@ -61,8 +61,8 @@ function App() {
     fetch("https://tomatomodel-msh0.onrender.com/get-image", {
       method: "GET",
       headers: {
-        "Accept": "application/json",
-        "Authorization": "Bearer rnd_c6mrjkD5f5CQxlXcWrtRCwzQgdlO"
+        'Accept': 'application/json',
+        'Authorization': 'Bearer rnd_c6mrjkD5f5CQxlXcWrtRCwzQgdlO'
       }
     })
     .then((res) => res.json())
@@ -70,6 +70,7 @@ function App() {
       console.log(data);
       setAllImage(data.data);
     })
+    .catch(error => console.log(error))
   }
   
   return (

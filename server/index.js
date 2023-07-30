@@ -2,9 +2,13 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 require('dotenv').config();
 
-
+// Add cors(origin: true) to your route...
+app.use('/my-callback-url-path', cors({origin: 'https://stagegateway.eko.in'}), function (req, res, next) {
+});
 app.use(express.json());
 app.set('view engine', "ejs");
 app.use(express.urlencoded({extended: false}));
