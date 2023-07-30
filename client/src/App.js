@@ -12,7 +12,7 @@ function App() {
 
   //Updates the state and displays image
   const ImageUpload = (event) => {
-    if (event.target.files && event.target.files[0]) {      
+    if (event.target.files && event.target.files[0]) { 
       //The function below uses a url create object
       setImage(URL.createObjectURL(event.target.files[0]));
       //The function below uses base64 code to display image
@@ -35,6 +35,7 @@ function App() {
 
   useEffect(() => {
     getImage();
+    document.title = "Tomato";
   }, [])
 
   function uploadImageToMongo(event) {
@@ -46,7 +47,6 @@ function App() {
         "Content-Type": "application/json",
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
-        "Authorization": "Bearer rnd_c6mrjkD5f5CQxlXcWrtRCwzQgdlO"
       },
       body: JSON.stringify({
         base64:base64image
@@ -59,11 +59,7 @@ function App() {
 
   function getImage() {
     fetch("https://tomatomodel-msh0.onrender.com/get-image", {
-      method: "GET",
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer rnd_c6mrjkD5f5CQxlXcWrtRCwzQgdlO'
-      }
+      method: "GET"
     })
     .then((res) => res.json())
     .then((data) => {
