@@ -40,26 +40,29 @@ function App() {
 
   function uploadImageToMongo(event) {
     event.preventDefault();
-    fetch("https://tomatomodel-msh0.onrender.com/upload-image", {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        base64:base64image
+    //Prevents no data submits and duplicate submits.
+    if(image != null){
+      fetch("https://tomatomodel-msh0.onrender.com/upload-image", {
+        method: "POST",
+        crossDomain: true,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+          base64:base64image
+        })
       })
-    })
-    .then((res) => res.json())
-    .then(() => {
-      console.log(`Image has been saved`);
-      //Resets the preview image
-      setImage('');
-      getImage();
-      })
-    .then((data) => console.log(data))
+      .then((res) => res.json())
+      .then(() => {
+        console.log(`Image has been saved`);
+        //Resets the preview image
+        setImage(null);
+        getImage();
+        })
+      .then((data) => console.log(data))
+    }
   }
 
   function getImage() {
@@ -118,7 +121,7 @@ function App() {
             <input accept ="image/*" type="file" onChange={ImageUpload}/>
           </div>
           <div>
-            <img src={image} id="previewImage" alt="Preview"/>
+            <img src={image} id="previewImage" alt="Click or Drag and Drop"/>
           </div>          
         </form>
 
