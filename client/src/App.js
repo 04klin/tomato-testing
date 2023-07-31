@@ -132,7 +132,7 @@ function App() {
 
       <br />
 
-      <div className="container flex">
+      <div className="container flex gap">
         {allImage.map(data => {
           return(
             <img width={192} height = {108} src={data.base64image} alt="mongoDB"/>

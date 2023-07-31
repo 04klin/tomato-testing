@@ -167,3 +167,7 @@ form input{
 .footer {
   height: 500px;
 }
+
+.gap {
+  gap: 4px;
+}
