@@ -163,3 +163,7 @@ form input{
   height: auto;
   border-radius: 10px;
 }
+
+.footer {
+  height: 500px;
+}

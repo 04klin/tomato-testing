@@ -116,28 +116,34 @@ function App() {
       </div>
       
       <form onSubmit={uploadImageToMongo}>
-          <button type="submit" id="submitButton">Upload Image</button>
-          <div className="alignLeft">
-            <input accept ="image/*" type="file" onChange={ImageUpload}/>
-          </div>
-          <div>
-            <img src={image} id="previewImage" alt="Click or Drag and Drop"/>
-          </div>          
-        </form>
+        <button type="submit" id="submitButton">Upload Image</button>
+        <div className="alignLeft">
+          <input accept ="image/*" type="file" onChange={ImageUpload}/>
+        </div>
+        <div>
+          <img src={image} id="previewImage" alt="Click or Drag and Drop"/>
+        </div>          
+      </form>
+
+
+      <br />
+      <br />
+
+
+      <h4 className="small-header">Result "not yet implemented"</h4>
+
+      <br />
 
       <div className="container flex">
-        <h4 className="small-header">Result "not yet implemented"</h4>
-      
-       <br/>
-        
-        <div>
-          {allImage.map(data => {
-            return(
-              <img width={192} height = {108} src={data.base64image} alt="mongoDB"/>
-            )
-          })}
-        </div>
+        {allImage.map(data => {
+          return(
+            <img width={192} height = {108} src={data.base64image} alt="mongoDB"/>
+          )
+        })}
       </div>
+
+     <div className="footer">
+     </div>
     </div>
   );
 }
