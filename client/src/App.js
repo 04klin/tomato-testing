@@ -118,7 +118,7 @@ function App() {
             <input accept ="image/*" type="file" onChange={ImageUpload}/>
           </div>
           <div>
-            <img src={image} id="previewImage"/>
+            <img src={image} id="previewImage" alt="Preview"/>
           </div>          
         </form>
 
