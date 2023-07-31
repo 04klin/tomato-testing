@@ -13,6 +13,7 @@
   padding-top: .5rem;
   padding-bottom: .5rem;
   background-color:#CC0000;
+  z-index: 1;
 }
 
 
