@@ -53,7 +53,12 @@ function App() {
       })
     })
     .then((res) => res.json())
-    .then(() => {console.log(`Image has been saved`)})
+    .then(() => {
+      console.log(`Image has been saved`);
+      //Resets the preview image
+      setImage('');
+      getImage();
+      })
     .then((data) => console.log(data))
   }
 
@@ -78,7 +83,7 @@ function App() {
             <li><a className="navlink" href="about.html">About</a></li>
             <li><a className="navlink" href="contact.html">Contact</a></li>
           </ul>
-        </div>      
+        </div>
       </nav>
 
       <div className="example">
@@ -93,30 +98,34 @@ function App() {
       </div>      
 
       <div className="container section-detector-prompt">
-        <h1 className="header">Detector</h1>
+        <h1 className="header">Disease Detector</h1>
         <p>Upload a picture of the desired tomato crops below</p>
-        <p>You can do so by clicking Browse or dragging and dropping</p>
-        
-        <form onSubmit={uploadImageToMongo}>
-          <input accept ="image/*" type="file" onChange={ImageUpload}/>
-          <button type="submit">Upload Image</button>  
+        <p>You can do so by clicking browse or dragging and dropping</p>
+
+        <h3>
+          The backend server sometimes needs time to spin up.          
+        </h3>
+        <h3>
+          Please wait until you see pictures below before uploading images.
+        </h3>
+
+        <br />        
+      </div>
+      
+      <form onSubmit={uploadImageToMongo}>
+          <button type="submit" id="submitButton">Upload Image</button>
+          <div className="alignLeft">
+            <input accept ="image/*" type="file" onChange={ImageUpload}/>
+          </div>
+          <div>
+            <img src={image} id="previewImage"/>
+          </div>          
         </form>
-        
-        
-    
-        <h4 className="small-header">Preview</h4>
-      </div>
+
       <div className="container flex">
-        <img src={image} id="resultImage" alt="Example"/>
-        
-      </div>
-      <br/>
-      <br/>
-      <br/>
-      <div className="container flex">
-        <h4 className="small-header">Result</h4>
-        {/* There should be a image there that shows if the image is saved or the btton becomes unusable*/}
-        <br/>
+        <h4 className="small-header">Result "not yet implemented"</h4>
+      
+       <br/>
         
         <div>
           {allImage.map(data => {
