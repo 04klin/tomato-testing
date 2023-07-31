@@ -102,8 +102,6 @@ function App() {
 
       <div className="container section-detector-prompt">
         <h1 className="header">Disease Detector</h1>
-        <p>Upload a picture of the desired tomato crops below</p>
-        <p>You can do so by clicking browse or dragging and dropping</p>
 
         <h3>
           The backend server sometimes needs time to spin up.          
@@ -111,12 +109,12 @@ function App() {
         <h3>
           Please wait until you see pictures below before uploading images.
         </h3>
-
+        <br />
         <br />        
       </div>
       
       <form onSubmit={uploadImageToMongo}>
-        <button type="submit" id="submitButton">Upload Image</button>
+        <button type="submit" id="submitButton">Upload Image {"(2 MB File Limit)"}</button>
         <div className="alignLeft">
           <input accept ="image/*" type="file" onChange={ImageUpload}/>
         </div>
