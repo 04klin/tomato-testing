@@ -119,7 +119,7 @@ function App() {
           <input accept ="image/*" type="file" onChange={ImageUpload}/>
         </div>
         <div>
-          <img src={image} id="previewImage" alt="Click or Drag and Drop"/>
+          <img src={image} id="previewImage" alt="Click or Drag and Drop Here"/>
         </div>          
       </form>
 
