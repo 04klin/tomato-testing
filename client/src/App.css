@@ -154,8 +154,8 @@ form input{
 
 #previewImage {
   max-width: 480px;
-  width: 480px;
-  height: 270px;
+  width: 100%;
+  height: 56.25%;
   border-radius: 5px;
   margin: auto;
 }
