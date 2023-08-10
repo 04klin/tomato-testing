@@ -226,7 +226,7 @@ function App() {
       
       
       <form onSubmit={uploadImageToMongo}>
-        <button type="submit" id="submitButton">Upload Image {"(2 MB File Limit)"}</button>
+        <button type="submit" id="submitButton">Upload Image to MongoDB {"(2 MB File Limit)"}</button>
         <div className="alignLeft">
           <input accept ="image/*" type="file" onChange={onDrop}/>
         </div>
