@@ -168,6 +168,13 @@ form input{
   border-radius: 10px;
 }
 
+#canvas {
+  margin:auto;
+  align-self: center;
+  width: 100%;
+  height: 56.25%;
+}
+
 .footer {
   height: 500px;
 }
