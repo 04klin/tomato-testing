@@ -5,6 +5,24 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: 'univers55_bold';
+  src: url('../../../webfontkit-20230811-004433/univers_55_bold-webfont.woff2') format('woff2'),
+       url('../../../webfontkit-20230811-004433/univers_55_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'univers55_roman';
+  src: url('../../../webfontkit-20230811-004433/univers_55_roman-webfont.woff2') format('woff2'),
+       url('../../../webfontkit-20230811-004433/univers_55_roman-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -31,7 +49,7 @@
   text-align: center;
   list-style: none;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'univers55_roman', 'Roboto', sans-serif;
   text-decoration: none;
   display:block;
   font-size: 1rem;
@@ -61,12 +79,25 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 1000px;
-  
+  font-family: 'univers55_roman', 'Roboto', sans-serif;
 }
 
 .flex {
   display: flex;
+}
+
+.flexWrap {
+  display: flex;
   flex-wrap: wrap;
+}
+
+.leftHero {
+  flex: auto;
+  width: 50%;
+}
+
+.rightHero {
+  flex: auto;
 }
 
 ul {
@@ -86,16 +117,16 @@ ul {
 }
 
 p {
-  font-family:'Roboto', sans-serif;
+  font-family: 'univers55_roman', 'Roboto', sans-serif;
   margin: 1rem;
 }
 
 .header, 
 .small-header {
-  font-weight: 800;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'univers55_roman','Roboto', sans-serif;
   font-size: 3rem;
   margin: 1rem;
+  color: #CC0000;
 }
 
 .small-header {
@@ -141,6 +172,7 @@ form input{
   border-radius: 4px;
   transition: all .2s ease;
   outline: none;
+  font-family: 'univers55_roman', 'Roboto', sans-serif;
 }
 
 #submitButton:hover{
