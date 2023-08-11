@@ -19,7 +19,8 @@ const About = () => {
             </div>
           </nav>
             <div className="container">
-              <h1>About</h1>
+              <h1 className="header">About</h1>
+              <p>In Progress ...</p>
             </div>
         </div>
     );

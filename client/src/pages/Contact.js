@@ -18,7 +18,8 @@ const About = () => {
             </div>
           </nav>
             <div className="container">
-              <h1>Contact</h1>
+              <h1 className="header">Contact</h1>
+              <p>In Progess ...</p>
             </div>
         </div>
     );
