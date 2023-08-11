@@ -34,7 +34,6 @@ const Home = () => {
 
   useEffect(() => {
     getImage();
-    document.title = "Tomato";
 
     //Loads the coco model to be used
     load(YOLO_V5_N_COCO_MODEL_CONFIG)
@@ -229,8 +228,10 @@ const Home = () => {
         <h3>
           Please wait until you see pictures below before uploading to MongoDB.
         </h3>
-        <br />
-        <br />        
+        <div className ="small-header">
+          {model == null && "Model Loading ..."}
+          {model != null && "Model Loaded"}
+        </div>      
       </div>
       
       
