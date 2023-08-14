@@ -253,13 +253,21 @@ const Home = () => {
         
         <canvas id="canvas" width="640" height="640"/>
       </div>
+
+
+      <div className ="small-header">
+        {/* This may be a problem if there are no images in the DB */}
+        {allImage.length === 0 && "Backend is spinning up ..."}
+      </div>
       <div className="container flexWrap gap">
+        {allImage !== [] && 
+          allImage.map(data => {
+            return(
+              <img width={192} height = {108} src={data.base64image} alt="mongoDB"/>
+            )
+          })
+        }
         
-        {allImage.map(data => {
-          return(
-            <img width={192} height = {108} src={data.base64image} alt="mongoDB"/>
-          )
-        })}
       </div>
 
      <div className="footer">
