@@ -134,7 +134,10 @@ const Home = () => {
       <br />
       
       <form onSubmit={uploadImageToMongo}>
-        <button type="submit" id="submitButton">Upload Image to MongoDB {"(2 MB File Limit)"}</button>
+        
+        {(backOnline === false )&& <button type="button" id="submitButton">Please Wait ...</button>}
+        {(backOnline === true )&& <button type="submit" id="submitButton">Upload Image to MongoDB {"(2 MB File Limit)"}</button>}
+        
         <div className="alignLeft">
           <input accept ="image/*" type="file" onChange={onDrop}/>
         </div>
