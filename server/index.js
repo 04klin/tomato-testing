@@ -46,8 +46,11 @@ app.post("/upload-image", async(req, res) => {
 })
 
 app.get("/get-image", async(req, res) => {
+  
+  const query = { type : "Image"};
+
   try {
-    await Images.find({}).then(data => {
+    await Images.find(query).then(data => {
       res.send({status: "OK", data: data});
     })
   }
