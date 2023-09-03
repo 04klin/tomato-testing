@@ -36,7 +36,7 @@ const Images=mongoose.model("ImageDetails");
 app.post("/upload-image", async(req, res) => {
   const {base64}=req.body;
   try {
-    await Images.create({base64image:base64});
+    await Images.create({base64image:base64, type: "Image"});
     res.send({Status:"OK"})
 
   } catch (error) {
@@ -59,7 +59,7 @@ app.get("/get-image", async(req, res) => {
 
 app.delete("/remove-images", async(req, res) => {
   
-  const query = { __v : 0};
+  const query = { type : "Image"};
 
   try {
     const result = await Images.deleteMany(query);

@@ -54,8 +54,7 @@ const Home = () => {
           "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
-          base64:base64image,
-          type: "Image"
+          base64:base64image
         })
       })
       .then((res) => res.json())
