@@ -8,15 +8,16 @@ const Home = () => {
 
   const [image, setImage] = useState(null);
   const [base64image, setBase64Image] = useState("");
-  const [allImage, setAllImage] = useState([]); 
+  const [allImage, setAllImage] = useState([]);
+  
 
-
+  const [backOnline, setBackOnline] = useState(false);
 
   useEffect(() => {
-    getImage(); 
-
-    
+    getImage();     
   }, [])
+
+
   //Updates the state and displays image
   const onDrop = (event) => {
     if (event.target.files && event.target.files[0]) { 
@@ -73,7 +74,20 @@ const Home = () => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
+      setBackOnline(true);
       setAllImage(data.data);
+    })
+    .catch(error => console.log(error))
+  }
+
+  function removeImages() {
+    fetch("https://tomatomodel-msh0.onrender.com/remove-images", {
+      method: "DELETE"
+    })
+    .then((res) => res.json())
+    .then(() => {
+      setAllImage([]);
+      console.log("Deleted");
     })
     .catch(error => console.log(error))
   }
@@ -132,8 +146,10 @@ const Home = () => {
 
       <div className ="small-header">
         {/* This may be a problem if there are no images in the DB */}
-        {allImage.length === 0 && "Backend is spinning up ..."}
+        {(allImage.length === 0 && backOnline === false )&& "Backend is Offline and Spinning Up"}
+        {(allImage.length === 0 && backOnline === true )&& "No Images In Server"}
       </div>
+
       <div className="container flexWrap gap">
         {allImage !== [] && 
           allImage.map(data => {
@@ -143,6 +159,10 @@ const Home = () => {
           })
         }
         
+      </div>
+
+      <div className ="small-header">
+        {allImage.length !== 0 && <button id="submitButton" onClick={removeImages}>Remove Images</button>}        
       </div>
 
      <div className="footer">
