@@ -64,7 +64,7 @@ app.delete("/remove-images", async(req, res) => {
   try {
     const result = await Images.deleteMany(query);
     console.log("Deleted " + result.deletedCount + " documents");
-    
+    res.send({Status:"OK"})
   }
   catch (error) {
     console.log(error);
