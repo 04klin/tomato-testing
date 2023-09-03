@@ -56,6 +56,23 @@ app.get("/get-image", async(req, res) => {
   }
 })
 
+
+app.delete("/remove-images", async(req, res) => {
+  
+  const query = { __v : 0};
+
+  try {
+    Images.deleteMany(query, function(err, obj) {
+      console.log(obj.result.n + " document(s) deleted");
+    });
+  }
+  catch (error) {
+    console.log(error);
+  }  
+
+})
+
+
 app.listen(port, () => {
   console.log(`Application is open on http://localhost:${port}`);
 });
