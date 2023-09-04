@@ -14,7 +14,11 @@ const userSchema = new Schema({
     type: String,
     required: true
   }
-})
+},
+{
+  collection: 'userInfo'
+}
+)
 
 // Static signup method
 userSchema.statics.signup = async (username, password) => {
@@ -47,7 +51,7 @@ userSchema.statics.login = async function(username, password) {
     throw Error('All fields must be filled')
   }
 
-  const user = await this.findone({ username })
+  const user = await this.findOne({ username })
 
   if(!user){
     throw Error('Incorrect email')
