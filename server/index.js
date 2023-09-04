@@ -1,25 +1,18 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
-
-
-
 const mongoose = require('mongoose');
 const cors = require('cors');
+const userRoutes = require('./routes/user')
 
 require('dotenv').config();
-
 //Enable cors
 app.use(cors());
-
-
 app.set('view engine', "ejs");
-
 app.use(express.json({limit: '2mb'}));
 app.use(express.urlencoded({limit: '2mb', extended: false}));
 
-
-
+app.use('/api/user', userRoutes)
 
 mongoose
   .connect(process.env.DATABASE, {
@@ -31,9 +24,9 @@ mongoose
   .catch((e) => console.log(e));
   console.log("Connecting to MongoDB...");
 
-require("./imageDetails");
+require("./models/imageDetails");
 
-const Images=mongoose.model("ImageDetails");
+const Images = mongoose.model("ImageDetails");
 
 
 app.post("/upload-image", async(req, res) => {
