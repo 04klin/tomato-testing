@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../css/Home.css';
 
 const Signup = () => {
   const [username, setUsername] = useState('')
@@ -11,25 +12,47 @@ const Signup = () => {
   }
 
   return (
-    <form className='signup' onSubmit={handleSubmit}>
-      <h3>Sign Up</h3>
+    <div className='body'>
+      <div className='container2'>
+        <div className='text'>
+          Signup
+        </div>  
+        <form className='signup' onSubmit={handleSubmit}>
+          <div class="form-row">
+            <div class="input-data">            
+              <input 
+                type="text"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                required
+              />
+              <div class="underline"></div>
+              <label>Username</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="input-data">            
+              <input 
+                type="text"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+              />
+              <div class="underline"></div>
+              <label>Password</label>
+            </div>
+          </div>
 
-      <label>Username:</label>
-      <input 
-        type="username"
-        onChange={(e) => setUsername(e.target.value)}
-        value={username}
-      />
-        
-      <label>Password:</label>
-      <input 
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-      />
-
-      <button>Sign Up</button>
-    </form>
+          
+          <div class="form-row submit-btn">
+                <div class="input-data">
+                    <button id='submitButton'>Signup</button>
+                </div>
+              </div>
+          
+        </form>
+      </div>   
+    </div>
   )
 }
 

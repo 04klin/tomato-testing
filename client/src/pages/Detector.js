@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './Home.css';
+import '../css/Home.css';
 import {load, YOLO_V5_N_COCO_MODEL_CONFIG} from 'yolov5js'
 
 //Model fields credits to SkalskiP
