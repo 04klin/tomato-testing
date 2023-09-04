@@ -18,34 +18,34 @@ const Login = () => {
           Login
         </div>  
         <form className='login' onSubmit={handleSubmit}>
-          <div class="form-row">
-            <div class="input-data">            
+          <div className="form-row">
+            <div className="input-data">            
               <input 
                 type="text"
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
                 required
               />
-              <div class="underline"></div>
+              <div className="underline"></div>
               <label>Username</label>
             </div>
           </div>
-          <div class="form-row">
-            <div class="input-data">            
+          <div className="form-row">
+            <div className="input-data">            
               <input 
                 type="text"
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 required
               />
-              <div class="underline"></div>
+              <div className="underline"></div>
               <label>Password</label>
             </div>
           </div>
 
           
-          <div class="form-row submit-btn">
-                <div class="input-data">
+          <div className="form-row submit-btn">
+                <div className="input-data">
                     <button id='submitButton'>Login</button>
                 </div>
               </div>
