@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import '../css/Home.css';
+import { useLogin } from '../hooks/useLogin'
 
 const Login = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const {login, error, isLoading} = useLogin()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    console.log(username, password)
+    await login(username, password)
+    
   }
 
   return (
@@ -45,11 +48,11 @@ const Login = () => {
 
           
           <div className="form-row submit-btn">
-                <div className="input-data">
-                    <button id='submitButton'>Login</button>
-                </div>
-              </div>
-          
+            <div className="input-data">
+                <button id='submitButton' disabled={isLoading}>Login</button>
+            </div>
+            {error && <div className='error'>{error}</div>}
+          </div>          
         </form>
       </div>   
     </div>

@@ -351,3 +351,14 @@ form .form-row .textarea{
     width: 40%!important;
   }
 }
+
+#username {
+  color: black;
+  border: solid 1px white;
+  background-color: white;
+}
+
+#logout {
+  border: solid 1px white;
+  background-color: #cc0000;
+}

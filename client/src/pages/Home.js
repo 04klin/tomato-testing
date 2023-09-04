@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../css/Home.css';
+import { useAuthContext } from "../hooks/useAuthContext";
 
 
 const Home = () => {
@@ -12,6 +13,10 @@ const Home = () => {
 
   const [backOnline, setBackOnline] = useState(false);
 
+
+  const { user } = useAuthContext();
+
+  
   useEffect(() => {
     getImage();     
   }, [])
@@ -152,7 +157,7 @@ const Home = () => {
       </div>
 
       <div className ="small-header">
-        {allImage.length !== 0 && <button id="submitButton" onClick={removeImages}>Remove Images</button>}        
+        {(allImage.length !== 0 && user) && <button id="submitButton" onClick={removeImages}>Remove Images</button>}        
       </div>
 
      <div className="footer">
