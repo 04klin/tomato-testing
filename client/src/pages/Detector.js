@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import './Home.css';
-import { Link } from "react-router-dom";
 import {load, YOLO_V5_N_COCO_MODEL_CONFIG} from 'yolov5js'
 
 //Model fields credits to SkalskiP
@@ -141,20 +140,7 @@ const Detector = () => {
   }
 
   return (
-    <div>
-      <nav className="navbar sticky-top">
-        <div className="container flex">
-          <a href="/"><img width="40" length="auto" src={process.env.PUBLIC_URL + '/ncsulogo.png'} alt="NCSU Logo"/></a>
-          <div className="nav justify-content-end">
-            <Link className="navlink" to="/">Home</Link>
-            <Link className="navlink" to="/about">About</Link>
-            <Link className="navlink" to="/contact">Contact</Link>
-            <Link className="navlink" to="/detector">Detector</Link>
-          </div>
-        </div>
-      </nav>
-
-      
+    <div>      
       <div className ="small-header">
         <h1>This detector has not been trained on tomatos yet.</h1>
           {model == null && "Model Loading ..."}
