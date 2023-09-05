@@ -86,11 +86,14 @@ const Home = () => {
 
   function removeImages() {
     fetch("https://tomatomodel-msh0.onrender.com/remove-images", {
-      method: "DELETE"
+      method: "DELETE",
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      }
     })
     .then((res) => res.json())
     .then(() => {
-      setAllImage([]);
+      getImage();
       console.log("Deleted");
     })
     .catch(error => console.log(error))
