@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./routes/user')
 
+const requireAuth = require('./middleware/requireAuth')
+
 require('dotenv').config();
 //Enable cors
 app.use(cors());
@@ -55,6 +57,8 @@ app.get("/get-image", async(req, res) => {
   }
 })
 
+
+app.use(requireAuth)
 
 app.delete("/remove-images", async(req, res) => {
   
