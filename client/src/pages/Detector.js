@@ -150,10 +150,10 @@ const Detector = () => {
       <form>
         <button type="submit" id="submitButton" onClick={clear}>Clear Image</button>
         <div className="alignLeft">
-          <input accept ="image/*" type="file" onChange={detect}/>
+          {model != null && <input accept ="image/*" type="file" onChange={detect}/>}          
         </div>
         <div>
-          <img src={image} id="previewImage" alt="Click or Drag and Drop Here"/>
+          {model != null && <img src={image} id="previewImage" alt="Click or Drag and Drop Here"/>}         
         </div>          
       </form>
       
