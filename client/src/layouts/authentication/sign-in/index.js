@@ -49,7 +49,6 @@ function SignIn() {
     e.preventDefault()
 
     await login(username, password)
-    
   }
 
   return (
