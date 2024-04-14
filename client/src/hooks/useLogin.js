@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { useAuthContext } from './useAuthContext'
+import { useSoftUIController } from 'context/index'
 
 export const useLogin = () => {
   const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(null)
-  const { dispatch } = useAuthContext();
+  const { dispatch } = useSoftUIController();
 
   const login = async function(username, password) {
     setIsLoading(true)

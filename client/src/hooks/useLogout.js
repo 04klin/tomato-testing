@@ -1,7 +1,7 @@
-import { useAuthContext } from "./useAuthContext"
+import { useSoftUIController } from "context/index"
 
 export const useLogout = () => {
-  const { dispatch } = useAuthContext()
+  const { dispatch } = useSoftUIController()
 
   const logout = () => {
     //remove user from storage
