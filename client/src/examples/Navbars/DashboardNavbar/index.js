@@ -58,7 +58,7 @@ import {
 import team2 from "assets/images/team-2.jpg";
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 
-
+import { useAuthContext } from "hooks/useAuthContext";
 
 import { useLogout } from "hooks/useLogout";
 import SoftButton from "components/SoftButton";
@@ -71,7 +71,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
   const route = useLocation().pathname.split("/").slice(1);
 
   
-  const { user } = useSoftUIController();
+  const { user } = useAuthContext();
   const { logout } = useLogout()
 
   useEffect(() => {

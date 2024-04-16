@@ -24,9 +24,7 @@ import { createContext, useContext, useReducer, useMemo, useEffect } from "react
 import PropTypes from "prop-types";
 
 // The Soft UI Dashboard PRO Material main context
-const SoftUI = createContext(null);
-
-export const AuthContext = createContext()
+export const SoftUI = createContext(null);
 
 // Setting custom name for the context which is visible on react dev tools
 SoftUI.displayName = "SoftUIContext";
@@ -58,10 +56,6 @@ function reducer(state, action) {
     case "LAYOUT": {
       return { ...state, layout: action.value };
     }
-    case 'LOGIN':
-      return { ...state, user: action.payload };
-    case 'LOGOUT':
-      return { ...state, user: null };
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -78,25 +72,20 @@ function SoftUIControllerProvider({ children }) {
     fixedNavbar: true,
     openConfigurator: false,
     direction: "ltr",
-    layout: "dashboard",
+    layout: "dashboard"
   };
 
   const [controller, dispatch] = useReducer(reducer, initialState);
 
   const value = useMemo(() => [controller, dispatch], [controller, dispatch]);
 
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'))
-
-
-    if(user){
-      dispatch({ type: 'LOGIN', payload: user})
-    }
-  }, [])
-
   console.log('AuthContext state: ', controller)
 
-  return <SoftUI.Provider value={value}>{children}</SoftUI.Provider>;
+  return (
+    <SoftUI.Provider value = {value}>
+      {children}
+    </SoftUI.Provider>
+  )
 }
 
 // Soft UI Dashboard React custom hook for using context
