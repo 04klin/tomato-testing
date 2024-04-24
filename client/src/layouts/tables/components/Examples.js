@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSoftUIController } from "context/index";
 
+import SoftTypography from "components/SoftTypography";
+import SoftButton from 'components/SoftButton';
 
 const Examples = () => {
 
@@ -100,7 +102,7 @@ const Examples = () => {
   return (
     <div>
       <div className="container section-detector-prompt">
-        <h1 className="header">Disease Detector</h1>
+        <SoftTypography>Disease Detector</SoftTypography>
         <h3>
           The backend server sometimes needs time to spin up.
         </h3>
@@ -110,8 +112,8 @@ const Examples = () => {
       </div>
       
       <form onSubmit={uploadImageToMongo}>
-        {(backOnline === false )&& <button type="button" id="submitButton">Please Wait ...</button>}
-        {(backOnline === true )&& <button type="submit" id="submitButton">Upload Image to MongoDB {"(2 MB File Limit)"}</button>}
+        {(backOnline === false )&& <SoftButton type="button" id="submitButton">Please Wait ...</SoftButton>}
+        {(backOnline === true )&& <SoftButton type="submit" id="submitButton">Upload Image to MongoDB {"(2 MB File Limit)"}</SoftButton>}
 
         <div className="alignLeft">
           <input accept ="image/*" type="file" onChange={onDrop}/>

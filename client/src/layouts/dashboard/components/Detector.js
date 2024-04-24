@@ -1,5 +1,6 @@
+// This entire file is currently just a placeholder detector. We will be using MMCV segmentation
+// to predict images. This can be removed once the MMCV segmentation begins to work
 import React, { useState, useEffect } from "react";
-// import '../css/Home.css';
 import {load, YOLO_V5_N_COCO_MODEL_CONFIG} from 'yolov5js'
 
 
@@ -13,6 +14,7 @@ import SoftTypography from 'components/SoftTypography';
 
 
 //Model fields credits to SkalskiP
+
 const WAITING_FOR_IMAGE = 0
 const IMAGE_LOADED = 1
 const INFERENCE_COMPLETED = 2
