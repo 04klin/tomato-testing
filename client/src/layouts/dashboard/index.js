@@ -38,7 +38,7 @@ import WorkWithTheRockets from "layouts/dashboard/components/WorkWithTheRockets"
 import Projects from "layouts/dashboard/components/Projects";
 import OrderOverview from "layouts/dashboard/components/OrderOverview";
 import Detector from "layouts/dashboard/components/Detector";
-
+import Segmentor from "./components/Segmentor";
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
@@ -54,13 +54,15 @@ function Dashboard() {
       <SoftBox py={3}>
         <SoftBox mb={3}>
           <Grid container spacing={3}>
-            <Grid item xs={12} lg={7}>
-              {/* <BuildByDevelopers /> */}
-              <Detector />
-            </Grid>
-            <Grid item xs={12} lg={5}>
+            {/* <Grid item xs={12} lg={7}>
+              <BuildByDevelopers /> 
+               <Detector />
+              
+            </Grid> */}
+            <Segmentor />
+            {/* <Grid item xs={12} lg={5}>
               <WorkWithTheRockets />
-            </Grid>
+            </Grid> */}
           </Grid>
         </SoftBox>
         {/* <SoftBox mb={3}>
